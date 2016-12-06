@@ -1,2 +1,1 @@
-# aws-photo-storage
-A simple aws photo storage as microservice
+# aws-sushi - A simple aws photo storage as microservice
