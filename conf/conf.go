@@ -9,12 +9,8 @@ import (
 // Sushi
 const (
 	InputType = "jpeg"
-	SushiId = 1
-	SushiStore = "var/sushi/store"
 	SushiPort = 9090
-	CacheMaxAge = 30 * 24 * 60 * 60 // 30 days
 	Mime = "image/jpeg"
-	Lossless = true
 	Quality = 95
 )
 

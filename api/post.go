@@ -51,7 +51,7 @@ func Post(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	setColor(&ic)
-	for _, format := range conf.Image.Format { // jpeg, webp, ...
+	for _, format := range conf.Image.Format {
 		for _, screen := range conf.Image.Screen {
 			ic.format = format
 			ic.ui = screen.Ui
@@ -73,7 +73,7 @@ func imgToBuf(ic *iconf) (string, error) {
 	ic.height = uint(img.Bounds().Size().Y)
 	ic.fid = fmt.Sprintf("%s-%s-%s-%s-%s-%s-%d-%d", ic.machine, ic.format, ic.density, ic.ui, ic.hash, ic.color, ic.width, ic.height)
 	buf := new(bytes.Buffer)
-	err := jpeg.Encode(buf, img, nil)
+	err := jpeg.Encode(buf, img, &jpeg.Options{Quality: conf.Quality})
 	if err != nil {
 		fmt.Println("ERROR: Unable to Encode into jpeg")
 		return "", err
