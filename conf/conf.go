@@ -53,9 +53,6 @@ func initImageConf() {
 }
 
 func initEnvron() {
-	log.Println("os.Getenv(AWS_ACCESS_KEY) =", os.Getenv("AWS_ACCESS_KEY"))
-	log.Println("os.Getenv(AWS_SECRET_KEY) =", os.Getenv("AWS_SECRET_KEY"))
-	log.Println("os.Getenv(S3_BUCKET) =", os.Getenv("S3_BUCKET"))
 	AccessKey = os.Getenv("AWS_ACCESS_KEY")
 	if len(AccessKey) == 0 {
 		log.Fatal("Set AWS_ACCESS_KEY (e.g. export AWS_ACCESS_KEY=XXX)")
