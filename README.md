@@ -10,7 +10,7 @@ To run sushi deamon
 docker run -d -p 9090:9090 --name sushi-instance --rm sushi
 ```
 
-### Image specification
+### Image specification ([configurable](https://github.com/microservices-today/aws-sushi/blob/master/sushi.conf))
 
 | Density                   | Thumbnail | Ad view |
 |---------------------------|-----------|---------|
