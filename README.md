@@ -71,38 +71,3 @@ POST data using the Content-Type multipart/form-data
 ```	
 curl -F image=@gopher.png http://localhost:9090
 ```	
-
-#### OUTPUT
-```
-{
-  "status": "OK",
-  "data": {
-    "image": [
-      {
-         "field": "xlarge_view",
-         "value": "0001-jpeg-xlarge-view-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-640-871"
-      },
-      {
-         "field": "xlarge_list",
-         "value": "0001-jpeg-xlarge-list-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-320-435"
-      },
-      {
-         "field": "large_view",
-         "value": "0001-jpeg-large-view-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-480-653"
-      },
-      {
-         "field": "large_list",
-         "value": "0001-jpeg-large-list-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-240-327"
-      },
-      {
-        "field": "medium_view",
-        "value": "0001-jpeg-medium-view-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-320-435"
-      },
-      {
-        "field": "medium_list",
-        "value": "0001-jpeg-medium-list-738046cbd7a5a01b4a59f1e2c9b9c1a8851791da-EAEAEA-160-218"
-      }
-    ]
-  }
-}
-```
