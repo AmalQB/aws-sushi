@@ -9,6 +9,10 @@ To run sushi deamon
 ```
 docker run -d -p 9090:9090 --name sushi-instance --rm sushi
 ```
+To test by POSTing data using the Content-Type multipart/form-data
+```	
+curl -F image=@gopher.png http://localhost:9090
+```	
 
 ### Image specification ([configurable](https://github.com/microservices-today/aws-sushi/blob/master/sushi.conf))
 
@@ -21,8 +25,8 @@ docker run -d -p 9090:9090 --name sushi-instance --rm sushi
 
 ### API
 
-#### PUT / HTTP/1.1
-```JSON
+#### POST / HTTP/1.1
+```
 Content-Length: 65534
 [file content]
     
@@ -43,10 +47,3 @@ HTTP/1.1 200 OK
   }
 }
 ```
-
-#### TEST
-
-POST data using the Content-Type multipart/form-data
-```	
-curl -F image=@gopher.png http://localhost:9090
-```	
