@@ -22,7 +22,7 @@ docker run -d -p 9090:9090 --name sushi-instance --rm sushi
 ### API
 
 #### PUT / HTTP/1.1
-```
+```JSON
 Content-Length: 65534
 [file content]
     
@@ -31,37 +31,16 @@ HTTP/1.1 200 OK
 {
   "status": "OK",
   "data": {
-    "image": [
-      {
-         "field": "xxlarge_view",
-         "value": "0001-webp-xlarge-view-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-960-1034"
-      },
-      {
-         "field": "xlarge_view",
-         "value": "0001-webp-xlarge-view-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-640-871"
-      },
-      {
-         "field": "xlarge_list",
-         "value": "0001-webp-xlarge-list-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-320-435"
-      },
-      {
-         "field": "large_view",
-         "value": "0001-webp-large-view-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-480-653"
-      },
-      {
-         "field": "large_list",
-         "value": "0001-webp-large-list-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-240-327"
-      },
-      {
-         "field": "medium_view",
-         "value": "0001-webp-medium-view-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-320-435"
-      },
-      {
-         "field": "medium_list",
-         "value": "0001-webp-medium-list-da39a3ee5e6b4b0d3255bfef95601890afd80709-EBEBEB-160-218"
-      }
-    ]
-  }
+    "image":[
+      {"field":"xxhdpi_view","value":"0001-jpeg-xxhdpi-view-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-960-960"},
+      {"field":"xlarge_view","value":"0001-jpeg-xlarge-view-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-640-640"},
+      {"field":"xlarge_list","value":"0001-jpeg-xlarge-list-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-320-320"},
+      {"field":"large_view","value":"0001-jpeg-large-view-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-480-480"},
+      {"field":"large_list","value":"0001-jpeg-large-list-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-240-240"},
+      {"field":"medium_view","value":"0001-jpeg-medium-view-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-320-320"},
+      {"field":"medium_list","value":"0001-jpeg-medium-list-f9a5fdfe5cb7de1d3fe2d77baebdc84efcad4058-49515C-160-160"}
+    ]
+  }
 }
 ```
 
