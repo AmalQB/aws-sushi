@@ -1,0 +1,18 @@
+{
+    "family": "aws-sushi",
+    "containerDefinitions": [
+        {
+            "environment": [],
+            "name": "aws-sushi",
+            "image": "DOCKER_URI",
+            "cpu": 10,
+            "memory": 500,
+            "portMappings": [
+                {
+                    "containerPort": 9090,
+                    "hostPort": 0
+                }
+            ]
+        }
+    ]
+}
