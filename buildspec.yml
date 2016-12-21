@@ -1,0 +1,20 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - git ls-remote https://${GITHUB_TOKEN}@github.com/microservices-today/aws-sushi.git HEAD | awk '{ print $1;}' > master.commit
+      - docker build -t $ECR_REPO:$(cat ./master.commit) .
+      - sed -i "s@DOCKER_URI@${ECR_REPO}:$(cat ./master.commit)@g" task-definition.json
+      - sed -i "s@ECS_CLUSTER_NAME@${ECS_CLUSTER_NAME}@g" service-definition.json
+      - sed -i "s@TARGET_GROUP_ARN@${TARGET_GROUP_ARN}@g" service-definition.json
+      - sed -i "s@ECS_SERVICE_ROLE@${ECS_SERVICE_ROLE}@g" service-definition.json
+  post_build:
+    commands:
+      - $(aws ecr get-login --region $AWS_REGION)
+      - docker push $ECR_REPO:$(cat ./master.commit)
+artifacts:
+  files:
+    - task-definition.json
+    - service-definition.json
+    - master.commit
