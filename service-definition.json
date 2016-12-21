@@ -1,0 +1,14 @@
+{
+  "serviceName": "aws-sushi",
+  "taskDefinition": "aws-sushi",
+  "cluster": "ECS_CLUSTER_NAME",
+  "desiredCount":2,
+  "loadBalancers": [
+     {
+    "containerName": "aws-sushi", 
+    "containerPort": 9090, 
+    "targetGroupArn": "TARGET_GROUP_ARN"
+   }
+  ],
+  "role": "ECS_SERVICE_ROLE"
+}
