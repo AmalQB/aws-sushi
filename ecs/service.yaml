@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  Tag:
+    Type: String
+    Description: Tag of the Docker Image.
+    Default: TAG
+  ECSClusterName:
+    Type: String
+    Description: Name of an existing ECS Cluster.
+    Default: ECS_CLUSTER_NAME
+
+Resources:
+  SushiTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: Nginx-ng
+      ContainerDefinitions:
+      - Name: nginx
+        Cpu: '10'
+        Essential: 'true'
+        Image:
+          "Fn::Sub":
+            - '${AccountId}.dkr.ecr.${Region}.amazonaws.com/aws-sushi:TAG'
+            - { AccountId: AWS::AccountId, Region: AWS::Region }
+        Memory: '128'
+        PortMappings:
+        - ContainerPort: 80
+          HostPort: 80
+      Volumes:
+      - Name: my-vol
+  SushiService:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster: ECS_CLUSTER_NAME
+      DesiredCount: '1'
+      TaskDefinition:
+        Ref: SushiTaskDefinition
+Outputs:
+  ecsservice:
+    Value:
+      Ref: NginxService
