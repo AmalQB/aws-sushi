@@ -10,12 +10,12 @@ Parameters:
     Default: ECS_CLUSTER_NAME
 
 Resources:
-  SushiTaskDefinition:
+  TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      Family: Nginx-ng
+      Family: aws-sushi
       ContainerDefinitions:
-      - Name: nginx
+      - Name: sushi
         Cpu: '10'
         Essential: 'true'
         Image:
@@ -28,14 +28,14 @@ Resources:
           HostPort: 80
       Volumes:
       - Name: my-vol
-  SushiService:
+  Service:
     Type: AWS::ECS::Service
     Properties:
       Cluster: ECS_CLUSTER_NAME
       DesiredCount: '1'
       TaskDefinition:
-        Ref: SushiTaskDefinition
+        Ref: TaskDefinition
 Outputs:
   ecsservice:
     Value:
-      Ref: NginxService
+      Ref: Service
