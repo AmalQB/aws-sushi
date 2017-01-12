@@ -21,7 +21,7 @@ Resources:
         Image:
           "Fn::Sub":
             - '${AccountId}.dkr.ecr.${Region}.amazonaws.com/aws-sushi:TAG'
-            - { AccountId: AWS::AccountId, Region: AWS::Region }
+            - { AccountId: { "Ref" : "AWS::AccountId" }, Region: { "Ref" : "AWS::Region" }}
         Memory: '128'
         PortMappings:
         - ContainerPort: 80
